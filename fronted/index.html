@@ -1,0 +1,149 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Refugio de Mascotas - Gestión de Adopciones</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="nav-container">
+                <h1><i class="fas fa-paw"></i> Refugio de Mascotas</h1>
+                <div class="nav-links">
+                    <button id="btn-explorar" class="nav-btn active">
+                        <i class="fas fa-search"></i> Explorar Razas
+                    </button>
+                    <button id="btn-refugio" class="nav-btn">
+                        <i class="fas fa-home"></i> Nuestras Mascotas
+                    </button>
+                    <button id="btn-agregar" class="nav-btn">
+                        <i class="fas fa-plus"></i> Agregar Mascota
+                    </button>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section id="seccion-explorar" class="seccion active">
+            <div class="container">
+                <h2><i class="fas fa-search"></i> Explorar Razas de Perros</h2>
+                <p class="descripcion">Descubre diferentes razas de perros y sus características</p>
+                
+                <div class="search-container">
+                    <input type="text" id="buscar-raza" placeholder="Buscar raza..." class="search-input">
+                    <button id="btn-buscar" class="btn-primary">
+                        <i class="fas fa-search"></i> Buscar
+                    </button>
+                    <button id="btn-aleatorio" class="btn-secondary">
+                        <i class="fas fa-random"></i> Imágenes Aleatorias
+                    </button>
+                </div>
+
+                <div id="lista-razas" class="razas-container">
+                    <div class="loading">
+                        <i class="fas fa-spinner fa-spin"></i> Cargando razas...
+                    </div>
+                </div>
+
+                <div id="galeria-imagenes" class="galeria">
+                </div>
+            </div>
+        </section>
+
+        <section id="seccion-refugio" class="seccion">
+            <div class="container">
+                <h2><i class="fas fa-home"></i> Mascotas en Nuestro Refugio</h2>
+                <p class="descripcion">Conoce a nuestras mascotas que buscan un hogar</p>
+                
+                <div id="mascotas-refugio" class="mascotas-container">
+                    <div class="loading">
+                        <i class="fas fa-spinner fa-spin"></i> Cargando mascotas...
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="seccion-agregar" class="seccion">
+            <div class="container">
+                <h2><i class="fas fa-plus"></i> Agregar Nueva Mascota</h2>
+                <p class="descripcion">Registra una nueva mascota en nuestro refugio</p>
+                
+                <form id="form-mascota" class="formulario">
+                    <div class="form-group">
+                        <label for="nombre">
+                            <i class="fas fa-tag"></i> Nombre de la mascota
+                        </label>
+                        <input type="text" id="nombre" name="nombre" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="raza">
+                            <i class="fas fa-dog"></i> Raza
+                        </label>
+                        <select id="raza" name="raza" required>
+                            <option value="">Selecciona una raza</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="edad">
+                            <i class="fas fa-calendar"></i> Edad (años)
+                        </label>
+                        <input type="number" id="edad" name="edad" min="0" max="20" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="descripcion">
+                            <i class="fas fa-align-left"></i> Descripción
+                        </label>
+                        <textarea id="descripcion" name="descripcion" rows="4" 
+                                  placeholder="Describe la personalidad, cuidados especiales, etc."></textarea>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="imagen_url">
+                            <i class="fas fa-image"></i> URL de la imagen
+                        </label>
+                        <input type="url" id="imagen_url" name="imagen_url" 
+                               placeholder="https://ejemplo.com/imagen.jpg">
+                        <button type="button" id="btn-imagen-raza" class="btn-secondary">
+                            <i class="fas fa-random"></i> Obtener imagen de la raza
+                        </button>
+                    </div>
+
+                    <div class="form-actions">
+                        <button type="submit" class="btn-primary">
+                            <i class="fas fa-save"></i> Guardar Mascota
+                        </button>
+                        <button type="reset" class="btn-secondary">
+                            <i class="fas fa-undo"></i> Limpiar
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <div id="modal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <div id="modal-body">
+            </div>
+        </div>
+    </div>
+
+    <div id="notificaciones" class="notificaciones"></div>
+
+    <footer>
+        <div class="container">
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
